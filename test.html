@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 60px;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 32px;
+            color: #1a202c;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .status p {
+            color: #16a34a;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .info {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .info p {
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎉 纯 HTML 测试页面</h1>
+
+        <div class="status">
+            <p>✅ HTML 正常加载</p>
+            <p>✅ CSS 样式正常工作</p>
+            <p>✅ 渐变背景正常显示</p>
+            <p id="js-status">⏳ JavaScript 检测中...</p>
+        </div>
+
+        <div class="info">
+            <p><strong>当前时间：</strong><span id="time">加载中...</span></p>
+            <p><strong>浏览器：</strong><span id="browser">检测中...</span></p>
+            <p><strong>访问地址：</strong><span id="url">检测中...</span></p>
+        </div>
+
+        <button onclick="testAlert()">点击测试 JavaScript</button>
+    </div>
+
+    <script>
+        // JavaScript 测试
+        console.log('✅ JavaScript 正常执行！');
+        console.log('当前 URL:', window.location.href);
+        console.log('User Agent:', navigator.userAgent);
+
+        // 更新状态
+        document.getElementById('js-status').textContent = '✅ JavaScript 正常执行';
+        document.getElementById('js-status').style.color = '#16a34a';
+
+        // 显示时间
+        document.getElementById('time').textContent = new Date().toLocaleString('zh-CN');
+
+        // 显示浏览器信息
+        document.getElementById('browser').textContent = navigator.userAgent.split(' ').slice(-1)[0];
+
+        // 显示 URL
+        document.getElementById('url').textContent = window.location.href;
+
+        // 测试按钮功能
+        function testAlert() {
+            alert('JavaScript 工作正常！\n\n你应该能看到这个弹窗。');
+            console.log('按钮点击事件触发');
+        }
+
+        // 页面加载完成
+        window.addEventListener('load', function() {
+            console.log('✅ 页面完全加载');
+        });
+    </script>
+</body>
+</html>
