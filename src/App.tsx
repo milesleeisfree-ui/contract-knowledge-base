@@ -43,7 +43,9 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+], {
+  basename: '/contract-knowledge-base',
+});
 
 function App() {
   return <RouterProvider router={router} />;
