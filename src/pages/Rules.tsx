@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react';
 import { ChevronRight, ChevronDown, Search } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import { rules, ruleCategories, Rule } from '../data/rules';
+import { rules, ruleCategories } from '../data/rules';
+import type { Rule } from '../data/rules';
 
 export default function Rules() {
   const [selectedRule, setSelectedRule] = useState<Rule>(rules[0]);

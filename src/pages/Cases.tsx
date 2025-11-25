@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { AlertTriangle, X } from 'lucide-react';
-import { cases, riskTypes, Case } from '../data/cases';
+import { cases, riskTypes } from '../data/cases';
+import type { Case } from '../data/cases';
 
 export default function Cases() {
   const [selectedCase, setSelectedCase] = useState<Case | null>(null);
