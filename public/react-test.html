@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React CDN 测试</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        console.log('React 版本:', React.version);
+        console.log('ReactDOM 版本:', ReactDOM.version);
+
+        function App() {
+            console.log('App 组件渲染');
+            return (
+                <div style={{
+                    minHeight: '100vh',
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '20px'
+                }}>
+                    <div style={{
+                        background: 'white',
+                        borderRadius: '20px',
+                        padding: '60px',
+                        maxWidth: '600px'
+                    }}>
+                        <h1 style={{fontSize: '32px', marginBottom: '20px'}}>
+                            React CDN 测试成功！
+                        </h1>
+                        <p style={{color: '#16a34a', fontSize: '18px', fontWeight: 'bold'}}>
+                            ✅ React {React.version} 正常工作
+                        </p>
+                        <p style={{color: '#16a34a', fontSize: '18px', fontWeight: 'bold', marginTop: '10px'}}>
+                            ✅ ReactDOM 正常工作
+                        </p>
+                        <div style={{
+                            marginTop: '30px',
+                            padding: '20px',
+                            background: '#fef3c7',
+                            borderRadius: '10px'
+                        }}>
+                            <p style={{color: '#92400e'}}>
+                                这个页面直接从 CDN 加载 React，不依赖 Vite 构建。
+                                如果能看到这个，说明 React 本身没问题。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+
+        console.log('✅ React 应用已挂载');
+    </script>
+</body>
+</html>
