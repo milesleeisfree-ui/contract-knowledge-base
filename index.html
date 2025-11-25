@@ -5,6 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>contract-knowledge-base</title>
+    <script>
+      // GitHub Pages SPA redirect workaround
+      // Restore the path from sessionStorage after redirect
+      (function() {
+        var redirect = sessionStorage.getItem('redirect');
+        sessionStorage.removeItem('redirect');
+        if (redirect) {
+          var data = JSON.parse(redirect);
+          history.replaceState(null, '', data.path + data.search + data.hash);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

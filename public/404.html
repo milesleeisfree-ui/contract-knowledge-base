@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>contract-knowledge-base</title>
+    <script>
+      // GitHub Pages SPA redirect workaround
+      // Store the path in sessionStorage and redirect to index.html
+      sessionStorage.setItem(
+        'redirect',
+        JSON.stringify({
+          path: location.pathname,
+          search: location.search,
+          hash: location.hash
+        })
+      );
+      location.replace(location.origin + '/contract-knowledge-base/');
+    </script>
+  </head>
+  <body>
+    <!-- This page is just a redirect, the user shouldn't see it -->
+  </body>
+</html>
